@@ -8,7 +8,7 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   //refオブジェクトを作成
-  // 44行目でref属性に指定しDOMを参照
+  //44行目でref属性に指定しDOMを参照
   const todoNameRef = useRef();
 
   //タスクを追加するコンポーネント
