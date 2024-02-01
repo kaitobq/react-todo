@@ -4,12 +4,16 @@ import { v4 as uuidv4 } from "uuid";
 import userEvent from "@testing-library/user-event";
 
 function App() {
-  const [todos, setTodos] = useState([]); //useStateフックスはtodosが更新されると画面が再レンダリング（画面の更新）される。
+  //todos更新で画面が再レンダリング
+  const [todos, setTodos] = useState([]);
 
+  //refオブジェクトを作成
+  // 44行目でref属性に指定しDOMを参照
   const todoNameRef = useRef();
 
+  //タスクを追加するコンポーネント
   const handleAddTodo = () => {
-    //タスクを追加する。
+    // ref=todoNameRef(入力欄)の値
     const name = todoNameRef.current.value;
     if (name === "") return;
     setTodos((prevTodos) => {
@@ -28,6 +32,7 @@ function App() {
   };
 
   const handleClear = () => {
+    // completed=falseのtodoを取り出す
     const newTodos = todos.filter((todo) => !todo.completed);
     setTodos(newTodos);
   };
